@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display PNG Image</title>
+</head>
+<body>
+    <h1>Displaying PNG Image</h1>
+    <img src="static\assets\player1.png" alt="Description of Image">
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        img {
+            width: 200px;
+            height: auto;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="gallery"></div>
+
+    <script>
+        const imagePaths = [
+            'player1.png',
+            'player2.png'
+        ];
+
+        const gallery = document.getElementById('gallery');
+
+        imagePaths.forEach(path => {
+            const img = document.createElement('img');
+            img.src = path;
+            img.alt = 'Gallery Image';
+            gallery.appendChild(img);
+        });
+    </script>
+</body>
+</html>
