@@ -1,4 +1,25 @@
 import Phaser from "phaser";
+
+class Game extends Phaser.Scene {
+
+    preload() {
+
+        this.load.image("wallHorizontal", "assets/wallHorizontal.png");
+        this.load.image("wallVertical", "assets/wallVertical.png");
+
+        this.load.image("player1", "assets/player1.png");
+        this.load.image("player2", "assets/player2.png");
+
+        this.load.audio("dead", ["assets/dead.mp3"]);
+        this.load.audio("music", ["assets/music.mp3"]);
+    }
+
+    create() {
+        this.player = this.physics.add.sprite(10, 10, "player");
+        this.player.setCollideWorldBounds(true); 
+        this.player.body.gravity.y = 250;
+        
+=======
 class Game extends Phaser.Scene {
     constructor() {
         super("Game")
@@ -13,6 +34,7 @@ class Game extends Phaser.Scene {
         this.player = this.physics.add.sprite(0, 0, "player");
         this.player.setCollideWorldBounds(true); 
         this.player.body.gravity.y = 250;
+ 
         this.player2 = this.physics.add.sprite(0, 250, "player");
         this.player.setCollideWorldBounds(true);
         this.player2.body.gravity.y = 0;
@@ -69,8 +91,7 @@ class Game extends Phaser.Scene {
          this.physics.add.collider(this.player2, this.vertMovingWalls);
 
 
-     }
-    }   
+        }
         Update(){
         if (this.A.isDown){
         this.player.setVelocityX(-150);
@@ -111,6 +132,3 @@ class Game extends Phaser.Scene {
             const newY = this.initialY + (oscY * (this.initialY-this.finalY));
         
         }
-      
-
-  
