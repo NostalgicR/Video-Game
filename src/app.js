@@ -19,6 +19,22 @@ class Game extends Phaser.Scene {
         this.player.setCollideWorldBounds(true); 
         this.player.body.gravity.y = 250;
         
+=======
+class Game extends Phaser.Scene {
+    constructor() {
+        super("Game")
+    }
+    preload() {
+        this.load.spritesheet("player", "assets/player1.png");
+        this.load.spritesheet("player2", "assets/player2.png");
+        this.load.image("wall", "assets/wallHorizontal.png");
+        this.load.image("wall", "assets/wallVertical.png");
+    }
+    create() {
+        this.player = this.physics.add.sprite(0, 0, "player");
+        this.player.setCollideWorldBounds(true); 
+        this.player.body.gravity.y = 250;
+ 
         this.player2 = this.physics.add.sprite(0, 250, "player");
         this.player.setCollideWorldBounds(true);
         this.player2.body.gravity.y = 0;
@@ -75,7 +91,7 @@ class Game extends Phaser.Scene {
          this.physics.add.collider(this.player2, this.vertMovingWalls);
 
 
-     }
+        }
         Update(){
         if (this.A.isDown){
         this.player.setVelocityX(-150);
@@ -116,4 +132,3 @@ class Game extends Phaser.Scene {
             const newY = this.initialY + (oscY * (this.initialY-this.finalY));
         
         }
-}
