@@ -1,11 +1,9 @@
 import Phaser from "phaser";
 class Game extends Phaser.Scene {
-    constructor() {
-        super("Game")
+   
     }
     preload() {
-        this.load.spritesheet("player", "assets/player1.png");
-        this.load.spritesheet("player2", "assets/player2.png");
+
         this.load.image("wall", "assets/wallHorizontal.png");
         this.load.image("wall", "assets/wallVertical.png");
     }
@@ -70,7 +68,7 @@ class Game extends Phaser.Scene {
 
 
      }
-    }   
+       
         Update(){
         if (this.A.isDown){
         this.player.setVelocityX(-150);
@@ -102,15 +100,18 @@ class Game extends Phaser.Scene {
             this.player.setVelocityY(-330)
         }
         this.moveWall();   
-    }
+        }
         moveWall() {
-            const oscX = Math.sin(this.time/100*this.horzMovingWalls);
+            const oscX = Math.sin(this.time/1000*this.horzMovingWalls);
             const newX = this.initialX + (oscX * (this.initialX-this.finalX));
             
-            const oscY = Math.sin(this.time/100*this.vertMovingWalls);
+            const oscY = Math.sin(this.time/1000*this.vertMovingWalls);
             const newY = this.initialY + (oscY * (this.initialY-this.finalY));
-        
-        }
+        }    
+    }
+
+    
+    
       
 
   
